@@ -18,4 +18,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-   - assets/graphic.png
+   - assets/images/graphic.png
+  fonts:
+   - family: Barlow
+     fonts:
+      - asset: assets/fonts/Barlow-Regular.ttf  
+  
