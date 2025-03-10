@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/ui/weather_item_page0.dart';
 import 'package:weather_app_2/ui/weather_item_page1.dart';
 import 'package:weather_app_2/ui/weather_item_page2.dart';
 import 'package:weather_app_2/ui/weather_item_page3.dart';
+import 'package:weather_app_2/ui/weather_item_page4.dart';
 
 class WeatherHomePage extends StatefulWidget {
   const WeatherHomePage({super.key});
@@ -32,42 +34,21 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
               width: double.infinity,
 
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
                 color: Colors.white,
               ),
 
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                  WeatherItemPage0(),
                   WeatherItemPage1(),
                   WeatherItemPage2(),
                   WeatherItemPage3(),
-                  Container(
-                    height: 100,
-                    // decoration: BoxDecoration(color: Colors.white),
-                    child: Expanded(
-                      child: ListView.builder(
-                        itemCount: 7,
-
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (c, i) {
-                          return Container(
-                            margin: EdgeInsets.all(8),
-                            alignment: Alignment.center,
-                            height: 101,
-                            width: 95,
-
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(width: 1, color: Colors.grey),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Text('test'),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
+                  WeatherItemPage4()
                 ],
               ),
             ),
