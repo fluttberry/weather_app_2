@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WeatherItemPage1 extends StatefulWidget {
-  const WeatherItemPage1({super.key});
+class WeatherItemPage2 extends StatefulWidget {
+  const WeatherItemPage2({super.key});
 
   @override
-  State<WeatherItemPage1> createState() => _WeatherItemPage1State();
+  State<WeatherItemPage2> createState() => _WeatherItemPage2State();
 }
 
-class _WeatherItemPage1State extends State<WeatherItemPage1> {
+class _WeatherItemPage2State extends State<WeatherItemPage2> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,17 +19,18 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
           alignment: Alignment.center,
           decoration: BoxDecoration(color: Colors.white),
           child: Column(
-            children: [
-              Icon(Icons.cloud_circle_outlined, size: 40, color: Colors.grey),
-              Text(
-                'Sunny',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Barlow',
-                ),
-              ),
-            ],
+            children: 
+              // Image.asset('assets/icons/027-humidity.png'),
+
+              // Text(
+              //   '49%',
+              //   style: TextStyle(
+              //     fontSize: 16,
+              //     fontWeight: FontWeight.bold,
+              //     fontFamily: 'Barlow',
+              //   ),
+              // ),
+            
           ),
         ),
 
