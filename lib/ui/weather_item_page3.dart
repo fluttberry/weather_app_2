@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WeatherItemPage2 extends StatefulWidget {
-  const WeatherItemPage2({super.key});
+class WeatherItemPage3 extends StatefulWidget {
+  const WeatherItemPage3({super.key});
 
   @override
-  State<WeatherItemPage2> createState() => _WeatherItemPage2State();
+  State<WeatherItemPage3> createState() => _WeatherItemPage3State();
 }
 
-class _WeatherItemPage2State extends State<WeatherItemPage2> {
+class _WeatherItemPage3State extends State<WeatherItemPage3> {
   @override
   Widget build(BuildContext context) {
     return Row(

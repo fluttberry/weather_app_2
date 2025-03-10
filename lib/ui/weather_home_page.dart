@@ -32,7 +32,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
 
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
+                color: Colors.amberAccent,
               ),
 
               child: Column(

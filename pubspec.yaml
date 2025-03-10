@@ -20,6 +20,10 @@ flutter:
   assets:
    - assets/images/graphic.png
    - assets/icons/027-humidity.png
+   - assets/icons/050-barometer.png
+   - assets/icons/001-wind-1.png
+
+
 
   fonts:
    - family: Barlow

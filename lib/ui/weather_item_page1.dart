@@ -15,7 +15,7 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
       children: [
         Container(
           height: 61,
-          width: 45,
+          width: 50,
           alignment: Alignment.center,
           decoration: BoxDecoration(color: Colors.white),
           child: Column(
@@ -36,7 +36,7 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
         Container(
           height: 87,
           width: 80,
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           decoration: BoxDecoration(color: Colors.white),
           child: Row(
             children: [
@@ -56,7 +56,7 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
           width: 50,
           alignment: Alignment.center,
           decoration: BoxDecoration(color: Colors.white),
-          child: Column(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 children: [
