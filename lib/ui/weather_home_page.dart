@@ -42,13 +42,14 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
               ),
 
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   WeatherItemPage0(),
                   WeatherItemPage1(),
                   WeatherItemPage2(),
                   WeatherItemPage3(),
-                  WeatherItemPage4()
+                  WeatherItemPage4(),
+                  SizedBox(height: 5,)
                 ],
               ),
             ),

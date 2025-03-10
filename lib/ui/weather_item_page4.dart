@@ -18,11 +18,18 @@ class WeatherItemPage4 extends StatelessWidget {
               alignment: Alignment.center,
               height: 101,
               width: 95,
-
               decoration: BoxDecoration(
                 color: Colors.white,
-                border: Border.all(width: 1, color: Colors.grey),
+
                 borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 5,
+                    blurRadius: 5,
+                    offset: Offset(3, 3),
+                  ),
+                ],
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
