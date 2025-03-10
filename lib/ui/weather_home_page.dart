@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_2/ui/weather_item_page1.dart';
 import 'package:weather_app_2/ui/weather_item_page2.dart';
+import 'package:weather_app_2/ui/weather_item_page3.dart';
 
 class WeatherHomePage extends StatefulWidget {
   const WeatherHomePage({super.key});
@@ -32,7 +33,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
 
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.amberAccent,
+                color: Colors.white,
               ),
 
               child: Column(
@@ -40,7 +41,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 children: [
                   WeatherItemPage1(),
                   WeatherItemPage2(),
-                  WeatherItemPage1(),
+                  WeatherItemPage3(),
                   Container(
                     height: 100,
                     // decoration: BoxDecoration(color: Colors.white),

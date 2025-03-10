@@ -22,6 +22,10 @@ flutter:
    - assets/icons/027-humidity.png
    - assets/icons/050-barometer.png
    - assets/icons/001-wind-1.png
+   - assets/icons/007-sunset.png
+   - assets/icons/008-sunrise.png
+   - assets/icons/sand-clock.png
+
 
 
 

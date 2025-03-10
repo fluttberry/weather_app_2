@@ -15,21 +15,21 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
       children: [
         Container(
           height: 61,
-          width: 50,
+          width: 60,
           alignment: Alignment.center,
           decoration: BoxDecoration(color: Colors.white),
           child: Column(
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/icons/027-humidity.png'),
+                  Image.asset('assets/icons/008-sunrise.png'),
                 ],
               ),
 
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '49%',
+                    '6:03 AM',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Humidiy',
+                    'Sunrise',
                     style: TextStyle(
                       fontSize: 10,
                       color: Colors.grey,
@@ -64,14 +64,14 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/icons/050-barometer.png',),
+                  Image.asset('assets/icons/007-sunset.png',),
                 ],
               ),
 
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '1,007mBar',
+                    '7:05 PM',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -83,7 +83,7 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Pressure',
+                    'Sunset',
                     style: TextStyle(
                       fontSize: 10,
                       color: Colors.grey,
@@ -105,14 +105,14 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/icons/001-wind-1.png'),
+                  Image.asset('assets/icons/sand-clock.png'),
                 ],
               ),
 
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '23 km/h',
+                    '13h 1m',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -124,7 +124,7 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Wind',
+                    'Daytime',
                     style: TextStyle(
                       fontSize: 10,
                       color: Colors.grey,
