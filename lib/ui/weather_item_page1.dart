@@ -20,7 +20,7 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
           decoration: BoxDecoration(color: Colors.white),
           child: Column(
             children: [
-              Icon(Icons.cloud_circle_outlined, size: 40, color: Colors.grey),
+              Image.asset('assets/icons/013-sunny.png'),
               Text(
                 'Sunny',
                 style: TextStyle(
@@ -56,7 +56,8 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
           width: 50,
           alignment: Alignment.center,
           decoration: BoxDecoration(color: Colors.white),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 children: [

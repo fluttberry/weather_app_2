@@ -24,7 +24,7 @@ class WeatherItemPage4 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
+                    color: Colors.grey.withAlpha(30),
                     spreadRadius: 5,
                     blurRadius: 5,
                     offset: Offset(3, 3),

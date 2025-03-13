@@ -49,13 +49,18 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                   WeatherItemPage2(),
                   WeatherItemPage3(),
                   WeatherItemPage4(),
-                  SizedBox(height: 5,)
+                  SizedBox(height: 5),
                 ],
               ),
             ),
+            
           ),
         ],
       ),
     );
+  }
+
+  Widget item(String img, String value, String title) {
+    return Column(children: [Text('data')]);
   }
 }

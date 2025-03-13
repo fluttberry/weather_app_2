@@ -7,7 +7,7 @@ class WeatherItemPage0 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
-      child: Row(
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             width: 220,
@@ -25,7 +25,7 @@ class WeatherItemPage0 extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 90),
+
           Container(
             width: 100,
             height: 48,
@@ -49,7 +49,7 @@ class WeatherItemPage0 extends StatelessWidget {
                     color: Colors.blue,
                   ),
                 ),
-                SizedBox(width: 10,),
+                SizedBox(width: 10),
                 Icon(Icons.location_on, size: 15, color: Colors.blue),
               ],
             ),
