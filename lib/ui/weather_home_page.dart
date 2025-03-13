@@ -1,4 +1,8 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/model/current_weather_model.dart';
+import 'package:weather_app_2/repository/weather_repository.dart';
 import 'package:weather_app_2/ui/weather_item_page0.dart';
 import 'package:weather_app_2/ui/weather_item_page1.dart';
 import 'package:weather_app_2/ui/weather_item_page2.dart';
@@ -13,7 +17,21 @@ class WeatherHomePage extends StatefulWidget {
 }
 
 class _WeatherHomePageState extends State<WeatherHomePage> {
+  WeatherRepository repository = WeatherRepository();
+  CurrentWeatherModel? currentWeatherModel;
   @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+ 
+  getData ()async{
+   var weatherModel = await repository.getCurrentWeather('Osh');
+  setState(() {
+    currentWeatherModel = weatherModel;
+  });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -53,7 +71,6 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                 ],
               ),
             ),
-            
           ),
         ],
       ),

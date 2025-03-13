@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/model/current_weather_model.dart';
 import 'package:weather_app_2/ui/weather_home_page.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,10 +19,16 @@ class MainApp extends StatelessWidget {
       home: WeatherHomePage(),
     );
   }
-  getWeather (cityName)async{
-    var response = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?q=Osh&appid=3bf0e75c85dc9da39e7eb5c655825988&units=metric'));
+
+  getWeather(cityName) async {
+    var response = await http.get(
+      Uri.parse(
+        'https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=3bf0e75c85dc9da39e7eb5c655825988&units=metric',
+      ),
+    );
     if (response.statusCode == 200) {
-      WeatherModel.fromJson(utf8.decode(response.bodyBytes));
+      var weather = CurrentWeatherModel.fromJson(json.decode(response.body));
+      weather.main?.humidity ?? '0';
     }
   }
 }
