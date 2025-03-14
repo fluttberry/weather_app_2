@@ -1,9 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/model/current_weather_model.dart';
+import 'package:weather_app_2/repository/weather_repository.dart';
 
-class WeatherItemPage0 extends StatelessWidget {
+class WeatherItemPage0 extends StatefulWidget {
   const WeatherItemPage0({super.key});
 
   @override
+  State<WeatherItemPage0> createState() => _WeatherItemPage0State();
+}
+
+class _WeatherItemPage0State extends State<WeatherItemPage0> {
+  WeatherRepository repository = WeatherRepository();
+  CurrentWeatherModel? currentWeatherModel;
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  getData() async {
+    var weatherModel = await repository.getCurrentWeather('Osh');
+    setState(() {
+      currentWeatherModel = weatherModel;
+    });
+  }
+
+  
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,

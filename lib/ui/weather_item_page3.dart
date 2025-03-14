@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/model/current_weather_model.dart';
+import 'package:weather_app_2/repository/weather_repository.dart';
 
 class WeatherItemPage3 extends StatefulWidget {
   const WeatherItemPage3({super.key});
@@ -8,7 +10,21 @@ class WeatherItemPage3 extends StatefulWidget {
 }
 
 class _WeatherItemPage3State extends State<WeatherItemPage3> {
+  WeatherRepository repository = WeatherRepository();
+  CurrentWeatherModel? currentWeatherModel;
   @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  getData() async {
+    var weatherModel = await repository.getCurrentWeather('Osh');
+    setState(() {
+      currentWeatherModel = weatherModel;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -29,7 +45,7 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '6:03 AM',
+                    '${currentWeatherModel?.sys?.sunrise?? '-'}AM',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -71,7 +87,7 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '7:05 PM',
+                    '${currentWeatherModel?.sys?.sunset?? '-'}PM',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

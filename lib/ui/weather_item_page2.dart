@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/model/current_weather_model.dart';
+import 'package:weather_app_2/repository/weather_repository.dart';
 
 class WeatherItemPage2 extends StatefulWidget {
   const WeatherItemPage2({super.key});
@@ -8,7 +10,21 @@ class WeatherItemPage2 extends StatefulWidget {
 }
 
 class _WeatherItemPage2State extends State<WeatherItemPage2> {
+  WeatherRepository repository = WeatherRepository();
+  CurrentWeatherModel? currentWeatherModel;
   @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  getData() async {
+    var weatherModel = await repository.getCurrentWeather('Osh');
+    setState(() {
+      currentWeatherModel = weatherModel;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -29,7 +45,7 @@ class _WeatherItemPage2State extends State<WeatherItemPage2> {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '49%',
+                    '${currentWeatherModel?.main?.humidity ?? '-'}%',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -71,7 +87,7 @@ class _WeatherItemPage2State extends State<WeatherItemPage2> {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '1,007mBar',
+                    '${currentWeatherModel?.main?.pressure ?? '-'}mBar',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -112,7 +128,7 @@ class _WeatherItemPage2State extends State<WeatherItemPage2> {
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '23 km/h',
+                    '${currentWeatherModel?.wind?.speed ?? '-'}km/h',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,

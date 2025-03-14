@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app_2/model/current_weather_model.dart';
+import 'package:weather_app_2/repository/weather_repository.dart';
 
 class WeatherItemPage1 extends StatefulWidget {
   const WeatherItemPage1({super.key});
@@ -9,7 +10,21 @@ class WeatherItemPage1 extends StatefulWidget {
 }
 
 class _WeatherItemPage1State extends State<WeatherItemPage1> {
+  WeatherRepository repository = WeatherRepository();
+  CurrentWeatherModel? currentWeatherModel;
   @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  getData() async {
+    var weatherModel = await repository.getCurrentWeather('Osh');
+    setState(() {
+      currentWeatherModel = weatherModel;
+    });
+  }
+
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -21,9 +36,9 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
           decoration: BoxDecoration(color: Colors.white),
           child: Column(
             children: [
-              Image.asset('assets/icons/013-sunny.png'),
+              Image.asset('${currentWeatherModel?.weather?.single?.icon ?? '-'}'),
               Text(
-                'Sunny',
+                '${currentWeatherModel?.weather?.single?.main?? '-'}',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
@@ -42,16 +57,10 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
           child: Row(
             children: [
               Text(
-                '${currentWeatherModel?.main?.temp ?? '-'}C',
+                '${currentWeatherModel?.main?.temp ?? '-'}℃',
                 style: TextStyle(fontSize: 55, fontFamily: 'Barlow'),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(bottom: 15),
-              //   child: Text(
-              //     '℃',
-              //     style: TextStyle(fontSize: 20, fontFamily: 'Barlow'),
-              //   ),
-              // ),
+              
             ],
           ),
         ),
@@ -66,7 +75,7 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
               Row(
                 children: [
                   Text(
-                    '35℃↑',
+                    '${currentWeatherModel?.main?.tempMax?? '-'}℃↑',
                     style: TextStyle(fontSize: 15, fontFamily: 'Barlow'),
                   ),
                 ],
@@ -74,7 +83,7 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
               Row(
                 children: [
                   Text(
-                    '27℃↓',
+                    '${currentWeatherModel?.main?.tempMin?? '-'}℃↓',
                     style: TextStyle(fontSize: 15, fontFamily: 'Barlow'),
                   ),
                 ],
