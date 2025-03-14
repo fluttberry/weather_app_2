@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app_2/model/current_weather_model.dart';
 
 class WeatherItemPage1 extends StatefulWidget {
   const WeatherItemPage1({super.key});
@@ -40,14 +41,17 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
           decoration: BoxDecoration(color: Colors.white),
           child: Row(
             children: [
-              Text('33', style: TextStyle(fontSize: 55, fontFamily: 'Barlow')),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 15),
-                child: Text(
-                  '℃',
-                  style: TextStyle(fontSize: 20, fontFamily: 'Barlow'),
-                ),
+              Text(
+                '${currentWeatherModel?.main?.temp ?? '-'}C',
+                style: TextStyle(fontSize: 55, fontFamily: 'Barlow'),
               ),
+              // Padding(
+              //   padding: const EdgeInsets.only(bottom: 15),
+              //   child: Text(
+              //     '℃',
+              //     style: TextStyle(fontSize: 20, fontFamily: 'Barlow'),
+              //   ),
+              // ),
             ],
           ),
         ),
