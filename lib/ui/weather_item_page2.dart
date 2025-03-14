@@ -27,131 +27,76 @@ class _WeatherItemPage2State extends State<WeatherItemPage2> {
 
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Container(
-          height: 61,
-          width: 50,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(color: Colors.white),
-          child: Column(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset('assets/icons/027-humidity.png'),
-                ],
+        Column(
+          children: [
+            Image.asset('assets/icons/027-humidity.png'),
+            Text(
+              '${currentWeatherModel?.main?.humidity ?? '-'}%',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Barlow',
               ),
-
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '${currentWeatherModel?.main?.humidity ?? '-'}%',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Barlow',
-                    ),
-                  ),
-                ],
+            ),
+            Text(
+              'Humidiy',
+              style: TextStyle(
+                fontSize: 10,
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Barlow',
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Humidiy',
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Barlow',
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
 
-        Container(
-          height: 75,
-          width: 75,
-          
-          decoration: BoxDecoration(color: Colors.white),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset('assets/icons/050-barometer.png',),
-                ],
+        Column(mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/icons/050-barometer.png',),
+                
+            Text(
+              '${currentWeatherModel?.main?.pressure ?? '-'}mBar',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Barlow',
               ),
-
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '${currentWeatherModel?.main?.pressure ?? '-'}mBar',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Barlow',
-                    ),
-                  ),
-                ],
+            ),
+            Text(
+              'Pressure',
+              style: TextStyle(
+                fontSize: 10,
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Barlow',
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Pressure',
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Barlow',
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
-        Container(
-          height: 61,
-          width: 60,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(color: Colors.white),
-          child: Column(
-            children: [
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset('assets/icons/001-wind-1.png'),
-                ],
+        Column(
+          children: [
+            Image.asset('assets/icons/001-wind-1.png'),
+        
+            Text(
+              '${currentWeatherModel?.wind?.speed ?? '-'}km/h',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Barlow',
               ),
-
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '${currentWeatherModel?.wind?.speed ?? '-'}km/h',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Barlow',
-                    ),
-                  ),
-                ],
+            ),
+            Text(
+              'Wind',
+              style: TextStyle(
+                fontSize: 10,
+                color: Colors.grey,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Barlow',
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Wind',
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.grey,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Barlow',
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ],
     );

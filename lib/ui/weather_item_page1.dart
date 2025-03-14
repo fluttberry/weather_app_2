@@ -19,7 +19,7 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
   }
 
   getData() async {
-    var weatherModel = await repository.getCurrentWeather('Osh');
+    var weatherModel = await repository.getCurrentWeather('osh');
     setState(() {
       currentWeatherModel = weatherModel;
     });
@@ -27,69 +27,38 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
 
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Container(
-          height: 61,
-          width: 50,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(color: Colors.white),
-          child: Column(
-            children: [
-              Image.asset('${currentWeatherModel?.weather?.single?.icon ?? '-'}'),
-              Text(
-                '${currentWeatherModel?.weather?.single?.main?? '-'}',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Barlow',
-                ),
+        Column(
+          children: [
+            // Image.asset('${currentWeatherModel?.weather?.single?.icon ?? '-'}'),
+            Text(
+              '${currentWeatherModel?.weather?.first.main?? '-'}',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Barlow',
               ),
-            ],
-          ),
+            ),
+          ],
         ),
 
-        Container(
-          height: 87,
-          width: 80,
-          alignment: Alignment.topCenter,
-          decoration: BoxDecoration(color: Colors.white),
-          child: Row(
-            children: [
-              Text(
-                '${currentWeatherModel?.main?.temp ?? '-'}℃',
-                style: TextStyle(fontSize: 55, fontFamily: 'Barlow'),
-              ),
-              
-            ],
-          ),
+        Text(
+          '${currentWeatherModel?.main?.temp?.round() ?? '-'}℃',
+          style: TextStyle(fontSize: 50, fontFamily: 'Barlow'),
         ),
-        Container(
-          height: 61,
-          width: 50,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(color: Colors.white),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                children: [
-                  Text(
-                    '${currentWeatherModel?.main?.tempMax?? '-'}℃↑',
-                    style: TextStyle(fontSize: 15, fontFamily: 'Barlow'),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    '${currentWeatherModel?.main?.tempMin?? '-'}℃↓',
-                    style: TextStyle(fontSize: 15, fontFamily: 'Barlow'),
-                  ),
-                ],
-              ),
-            ],
-          ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '${currentWeatherModel?.main?.tempMax?? '-'}℃↑',
+              style: TextStyle(fontSize: 15, fontFamily: 'Barlow'),
+            ),
+            Text(
+              '${currentWeatherModel?.main?.tempMin?? '-'}℃↓',
+              style: TextStyle(fontSize: 15, fontFamily: 'Barlow'),
+            ),
+          ],
         ),
       ],
     );
