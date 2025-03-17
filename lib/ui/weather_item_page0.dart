@@ -19,7 +19,7 @@ class _WeatherItemPage0State extends State<WeatherItemPage0> {
   }
 
   getData() async {
-    var weatherModel = await repository.getCurrentWeather('Osh');
+    var weatherModel = await repository.getCurrentWeather('bishkek');
     setState(() {
       currentWeatherModel = weatherModel;
     });
@@ -63,7 +63,7 @@ class _WeatherItemPage0State extends State<WeatherItemPage0> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Osh',
+                  '${currentWeatherModel?.name ?? '-'}',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

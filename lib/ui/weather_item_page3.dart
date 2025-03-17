@@ -28,7 +28,7 @@ class _WeatherItemPage3State extends State<WeatherItemPage3> {
 
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
       children: [
         Column(
           children: [

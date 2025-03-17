@@ -27,11 +27,11 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
 
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
       children: [
         Column(
           children: [
-            // Image.asset('${currentWeatherModel?.weather?.single?.icon ?? '-'}'),
+            // Image.network('${currentWeatherModel?.weather?.single?.icon ?? '-'}'),
             Text(
               '${currentWeatherModel?.weather?.first.main?? '-'}',
               style: TextStyle(
