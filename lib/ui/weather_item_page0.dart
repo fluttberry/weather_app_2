@@ -19,7 +19,7 @@ class _WeatherItemPage0State extends State<WeatherItemPage0> {
   }
 
   getData() async {
-    var weatherModel = await repository.getCurrentWeather('bishkek');
+    var weatherModel = await repository.getCurrentWeather('Osh');
     setState(() {
       currentWeatherModel = weatherModel;
     });

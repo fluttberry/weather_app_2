@@ -19,7 +19,7 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
   }
 
   getData() async {
-    var weatherModel = await repository.getCurrentWeather('osh');
+    var weatherModel = await repository.getCurrentWeather('dubai');
     setState(() {
       currentWeatherModel = weatherModel;
     });
@@ -27,13 +27,14 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
 
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Column(
           children: [
-            // Image.network('${currentWeatherModel?.weather?.single?.icon ?? '-'}'),
-            Text(
-              '${currentWeatherModel?.weather?.first.main?? '-'}',
+            Image.network(
+              'https://openweathermap.org/img/wn/${currentWeatherModel?.weather?.first.icon}.png',
+            ),
+            Text('${currentWeatherModel?.weather?.first.main ?? '-'}',
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
@@ -51,11 +52,11 @@ class _WeatherItemPage1State extends State<WeatherItemPage1> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '${currentWeatherModel?.main?.tempMax?? '-'}℃↑',
+              '${currentWeatherModel?.main?.tempMax ?? '-'}℃↑',
               style: TextStyle(fontSize: 15, fontFamily: 'Barlow'),
             ),
             Text(
-              '${currentWeatherModel?.main?.tempMin?? '-'}℃↓',
+              '${currentWeatherModel?.main?.tempMin ?? '-'}℃↓',
               style: TextStyle(fontSize: 15, fontFamily: 'Barlow'),
             ),
           ],
