@@ -325,10 +325,10 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                     height: 100,
                     child: Expanded(
                       child: ListView.builder(
-                        itemCount: 5,
+                        itemCount: forcastWeatherModel?.list?.length??0,
 
                         scrollDirection: Axis.horizontal,
-                        itemBuilder: (c, i) {
+                        itemBuilder: (contex, index) {
                           return Container(
                             margin: EdgeInsets.all(8),
                             alignment: Alignment.center,
@@ -353,8 +353,8 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    //         Image.network(
-                                    // 'https://openweathermap.org/img/wn/${forcastWeatherModel?.list.first.}.png',),
+                                          Image.network(
+                                     'https://openweathermap.org/img/wn/${forcastWeatherModel?.list?[index].weather?.first.icon}.png',),
                                   ],
                                 ),
 
@@ -362,9 +362,9 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'Mon,21',
+                                      '${DateFormat('HH:mm').format(DateTime.fromMillisecondsSinceEpoch((forcastWeatherModel?.list?[index].dt?? 0) * 1000))}',
                                       style: TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 12,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'Barlow',
                                       ),
@@ -375,7 +375,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      '35℃↑ 26℃↓',
+                                      '${currentWeatherModel?.main?.temp?.round() ?? '-'}℃',
                                       style: TextStyle(
                                         fontSize: 10,
                                         color: Colors.grey,
