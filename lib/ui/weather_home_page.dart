@@ -86,36 +86,98 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                           ),
                         ),
 
-                        Container(
-                          width: 100,
-                          height: 48,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade50,
-                            borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              topRight: Radius.circular(20),
-                            ),
-                          ),
+                        InkWell(
+                          onTap: () {
+                            showModalBottomSheet(
+                              
+                            
+                              context: context,
+                              builder: (context) {
+                                return Container(height: double.infinity,
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
 
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                '${currentWeatherModel?.name ?? '-'}',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Barlow',
+                                    children: [
+                                      Text(
+                                        'City',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'Barlow',
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 40,
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey.shade300,
+                                          ),
+                                        child: TextField(controller: cityController,
+                                        decoration: InputDecoration(border: InputBorder.none),),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          getData();
+                                          Navigator.pop(context);
+                                        },
+                                        child: Container(
+                                          height: 40,
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: Colors.blue,
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              'Search',
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold,
+                                                fontFamily: 'Barlow',
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: 150,
+                            height: 48,
+                            decoration: BoxDecoration(
+                              color: Colors.blue.shade50,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '${currentWeatherModel?.name ?? '-'}',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Barlow',
+                                    color: Colors.blue,
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                                Icon(
+                                  Icons.location_on,
+                                  size: 15,
                                   color: Colors.blue,
                                 ),
-                              ),
-                              SizedBox(width: 10),
-                              Icon(
-                                Icons.location_on,
-                                size: 15,
-                                color: Colors.blue,
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -325,7 +387,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                     height: 100,
                     child: Expanded(
                       child: ListView.builder(
-                        itemCount: forcastWeatherModel?.list?.length??0,
+                        itemCount: forcastWeatherModel?.list?.length ?? 0,
 
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (contex, index) {
@@ -353,8 +415,9 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                          Image.network(
-                                     'https://openweathermap.org/img/wn/${forcastWeatherModel?.list?[index].weather?.first.icon}.png',),
+                                    Image.network(
+                                      'https://openweathermap.org/img/wn/${forcastWeatherModel?.list?[index].weather?.first.icon}.png',
+                                    ),
                                   ],
                                 ),
 
@@ -362,7 +425,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      '${DateFormat('HH:mm').format(DateTime.fromMillisecondsSinceEpoch((forcastWeatherModel?.list?[index].dt?? 0) * 1000))}',
+                                      '${DateFormat('HH:mm').format(DateTime.fromMillisecondsSinceEpoch((forcastWeatherModel?.list?[index].dt ?? 0) * 1000))}',
                                       style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold,
