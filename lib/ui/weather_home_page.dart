@@ -89,61 +89,68 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                         InkWell(
                           onTap: () {
                             showModalBottomSheet(
-                              
-                            
                               context: context,
                               builder: (context) {
-                                return Container(height: double.infinity,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-
-                                    children: [
-                                      Text(
-                                        'City',
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'Barlow',
-                                          color: Colors.grey,
+                                return Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                                        mainAxisSize: MainAxisSize.min,
+                                
+                                  children: [
+                                    Text(
+                                      'City',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'Barlow',
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(25),
+                                      child: Container(
+                                        height: 40,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey.shade300,
+                                        ),
+                                        child: TextField(
+                                          controller: cityController,
+                                          decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                          ),
                                         ),
                                       ),
-                                      Container(
+                                    ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        getData();
+                                        Navigator.pop(context);
+                                      },
+                                      child: Container(
                                         height: 40,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey.shade300,
-                                          ),
-                                        child: TextField(controller: cityController,
-                                        decoration: InputDecoration(border: InputBorder.none),),
-                                      ),
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          getData();
-                                          Navigator.pop(context);
-                                        },
-                                        child: Container(
-                                          height: 40,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            color: Colors.blue,
-                                          ),
-                                          child: Center(
-                                            child: Text(
-                                              'Search',
-                                              style: TextStyle(
-                                                fontSize: 20,
-                                                fontWeight: FontWeight.bold,
-                                                fontFamily: 'Barlow',
-                                                color: Colors.white,
-                                              ),
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            'Search',
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                              fontFamily: 'Barlow',
+                                              color: Colors.white,
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    SizedBox(height: 10,)
+                                  ],
+                                  
                                 );
+                                
                               },
                             );
                           },
@@ -188,6 +195,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
+
                         children: [
                           Image.network(
                             'https://openweathermap.org/img/wn/${currentWeatherModel?.weather?.first.icon}.png',
