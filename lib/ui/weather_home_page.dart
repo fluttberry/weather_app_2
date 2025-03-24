@@ -94,8 +94,8 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                 return Column(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                                        mainAxisSize: MainAxisSize.min,
-                                
+                                  mainAxisSize: MainAxisSize.min,
+
                                   children: [
                                     Text(
                                       'City',
@@ -146,11 +146,9 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 10,)
+                                    SizedBox(height: 10),
                                   ],
-                                  
                                 );
-                                
                               },
                             );
                           },
@@ -195,7 +193,6 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
-
                         children: [
                           Image.network(
                             'https://openweathermap.org/img/wn/${currentWeatherModel?.weather?.first.icon}.png',
@@ -393,74 +390,74 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                   // ROW #4 STARTS HERE.
                   Container(
                     height: 100,
-                    child: Expanded(
-                      child: ListView.builder(
-                        itemCount: forcastWeatherModel?.list?.length ?? 0,
+                    child: ListView.builder(
+                      itemCount: forcastWeatherModel?.list?.length ?? 0,
 
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (contex, index) {
-                          return Container(
-                            margin: EdgeInsets.all(8),
-                            alignment: Alignment.center,
-                            height: 101,
-                            width: 95,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (contex, index) {
+                        return Container(
+                          margin: EdgeInsets.all(8),
+                          alignment: Alignment.center,
+                          // height: 101,
+                          width: 95,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
 
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withAlpha(30),
-                                  spreadRadius: 5,
-                                  blurRadius: 5,
-                                  offset: Offset(3, 3),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Image.network(
-                                      'https://openweathermap.org/img/wn/${forcastWeatherModel?.list?[index].weather?.first.icon}.png',
-                                    ),
-                                  ],
-                                ),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withAlpha(30),
+                                spreadRadius: 5,
+                                blurRadius: 5,
+                                offset: Offset(3, 3),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.network(
+                                    'https://openweathermap.org/img/wn/${forcastWeatherModel?.list?[index].weather?.first.icon}.png',
+                                  ),
+                                ],
+                              ),
 
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '${DateFormat('HH:mm').format(DateTime.fromMillisecondsSinceEpoch((forcastWeatherModel?.list?[index].dt ?? 0) * 1000))}',
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'Barlow',
-                                      ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '${DateFormat('HH:mm').format(DateTime.fromMillisecondsSinceEpoch((forcastWeatherModel?.list?[index].dt ?? 0) * 1000))}',
+
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Barlow',
                                     ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      '${currentWeatherModel?.main?.temp?.round() ?? '-'}℃',
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        color: Colors.grey,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'Barlow',
-                                      ),
+                                  ),
+                                ],
+                              ),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '${forcastWeatherModel?.list?[index].main?.temp!.round()} ℃',
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Barlow',
                                     ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
                   ),
                   SizedBox(height: 5),
